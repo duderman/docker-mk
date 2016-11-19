@@ -23,7 +23,10 @@ def git_repo = env.GIT_REPO_URL
   }
 
   //Дописываем stage с деплоем сразу после комментария
-
+  stage 'Run tests'
+    pkg.inside {
+      sh 'rspec app/blog_ui/tests.rb'
+    }
 
   }
 }
